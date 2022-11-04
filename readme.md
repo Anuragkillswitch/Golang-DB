@@ -20,3 +20,4 @@ Following struct methods
 
 # Handling data integrity issues
 1. Using mutexes ( inspired from Cockroach DB)
+( Locks)
