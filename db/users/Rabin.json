@@ -1,0 +1,12 @@
+{
+	"Name": "Rabin",
+	"Age": 22,
+	"Contact": "8107175060",
+	"Company": "Razorpay",
+	"Address": {
+		"City": "bangalore",
+		"State": "karnataka",
+		"Country": "india",
+		"Pincode": 410013
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"Name": "Zelinsky",
+	"Age": 27,
+	"Contact": "23344333",
+	"Company": "Microsoft",
+	"Address": {
+		"City": "pokhara",
+		"State": "pompom",
+		"Country": "Nepal",
+		"Pincode": 410013
+	}
+}
