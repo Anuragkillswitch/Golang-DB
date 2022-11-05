@@ -7,7 +7,7 @@ import (
 	"os"
 	"path/filepath"
 	"sync"
-
+    "github.com/anuragkillswitch/json-db/models"
 	"github.com/jcelliott/lumber"
 )
 
@@ -192,21 +192,6 @@ func stat(path string) (fi os.FileInfo, err error) {
 	return
 }
 
-type Address struct {
-	City    string
-	State   string
-	Country string
-	Pincode json.Number
-}
-
-type User struct {
-	Name    string
-	Age     json.Number
-	Contact string
-	Company string
-	Address Address
-}
-
 func main() {
 
 	dir := "./"
@@ -217,17 +202,17 @@ func main() {
 		fmt.Println("Error", err)
 	}
 
-	employees := []User{
-		{"Anurag", "22", "8107175060", "Razorpay", Address{"bangalore", "karnataka", "india", "410013"}},
-		{"Striver", "25", "23344333", "Google", Address{"san francisco", "california", "USA", "410013"}},
-		{"Govind", "27", "23344333", "Microsoft", Address{"pokhara", "pompom", "Nepal", "410013"}},
-		{"Vince", "29", "23344333", "Meta", Address{"bangalore", "karnataka", "india", "410013"}},
-		{"Loompy", "31", "23344333", "Zoom", Address{"bangalore", "karnataka", "india", "410013"}},
-		{"Albert", "32", "23344333", "Dominate", Address{"bangalore", "karnataka", "india", "410013"}},
+	employees := []schema.User{
+		{"Anurag", "22", "8107175060", "Razorpay", schema.Address{"bangalore", "karnataka", "india", "410013"}},
+		{"Striver", "25", "23344333", "Google", schema.Address{"san francisco", "california", "USA", "410013"}},
+		{"Govind", "27", "23344333", "Microsoft", schema.Address{"pokhara", "pompom", "Nepal", "410013"}},
+		{"Vince", "29", "23344333", "Meta", schema.Address{"bangalore", "karnataka", "india", "410013"}},
+		{"Loompy", "31", "23344333", "Zoom", schema.Address{"bangalore", "karnataka", "india", "410013"}},
+		{"Albert", "32", "23344333", "Dominate", schema.Address{"bangalore", "karnataka", "india", "410013"}},
 	}
 
 	for _, value := range employees {
-		db.Write("users", value.Name, User{
+		db.Write("users", value.Name, schema.User{
 			Name:    value.Name,
 			Age:     value.Age,
 			Contact: value.Contact,
@@ -244,10 +229,10 @@ func main() {
 
 	fmt.Println(records)
 
-	allUsers := []User{}
+	allUsers := []schema.User{}
 
 	for _, record := range records {
-		employeeFound := User{}
+		employeeFound := schema.User{}
 		if err := json.Unmarshal([]byte(record), &employeeFound); err != nil {
 			fmt.Println("Error", err)
 		}
