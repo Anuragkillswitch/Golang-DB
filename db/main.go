@@ -10,6 +10,23 @@ import (
 
 const Version = "1.0.0"
 
+type(
+    Logger interface{
+		Fatal(string, ...interface{})
+		Error(string, ...interface{})
+		Warn(string, ...interface{})
+		Info(string, ...interface{})
+		Debug(string, ...interface{})
+		Trace(string, ...interface{})
+	}
+	Driver struct{
+		mutex sync.Mutex
+		mutexes map[string]*sync.Mutex
+		dir string
+		log Logger
+	}
+)
+
 type Address struct {
 	City    string
 	State   string
@@ -23,6 +40,34 @@ type User struct {
 	Contact string
 	Company string
 	Address Address
+}
+
+type Options struct{
+	Logger 
+}
+
+func New()(){
+
+}
+
+func Write() error {
+   
+}
+
+func Read() error {
+  
+}
+
+func ReadAll()() {
+
+}
+
+func Delete() error{
+
+}
+
+func getOrCreateMutex() *sync.Mutex{
+
 }
 
 func main() {
