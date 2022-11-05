@@ -1,0 +1,12 @@
+{
+	"Name": "Anurag",
+	"Age": 22,
+	"Contact": "32334",
+	"Company": "Palantir",
+	"Address": {
+		"City": "Bangalore",
+		"State": "Karnataka",
+		"Country": "India",
+		"Pincode": 5600001
+	}
+}
